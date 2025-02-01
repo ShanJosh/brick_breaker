@@ -117,16 +117,15 @@ class Ball extends CircleComponent
             delay: 0.35,
             onComplete: () {
               Future.delayed(const Duration(milliseconds: 350), () {
-                // Trigger game over
                 game.playState = PlayState.gameOver;
 
-                // Remove all bat components
+
                 game.world.removeAll(game.world.children.query<Bat>());
               });
             },
           ));
         } else {
-          removeFromParent(); // Remove the ball if there are remaining balls
+          removeFromParent(); 
         }
       }
     } else if (other is Bat) {
@@ -138,7 +137,7 @@ class Ball extends CircleComponent
       if (other.paint != null) {
         paint.color = other.paint.color;
       } else {
-        paint.color = Colors.white; // Default to white if no color
+        paint.color = Colors.white; 
       }
 
       if (position.y < other.position.y - other.size.y / 2 ||
